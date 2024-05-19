@@ -9,21 +9,24 @@ export type KILL_SIGNAL = 'SIGKILL' | 'SIGTERM';
 
 export type Format = 'cjs' | 'esm' | 'iife';
 
-export type ContextForOutPathGeneration = {
+export interface ContextForOutPathGeneration {
   options: NormalizedOptions;
   format: Format;
   /** "type" field in project's package.json */
   pkgType?: string;
-};
+}
 
-export type OutExtensionObject = { js?: string; dts?: string };
+export interface OutExtensionObject {
+  js?: string;
+  dts?: string;
+}
 
 export type OutExtensionFactory = (ctx: ContextForOutPathGeneration) => OutExtensionObject;
 
-export type DtsConfig = {
+export interface DtsConfig {
   entry?: InputOption;
   /** Resolve external types used in dts files from node_modules */
-  resolve?: boolean | (string | RegExp)[];
+  resolve?: boolean | Array<string | RegExp>;
   /** Emit declaration files only */
   only?: boolean;
   /** Insert at the top of each output .d.ts file  */
@@ -35,7 +38,7 @@ export type DtsConfig = {
    * This option takes higher priority than `compilerOptions` in tsconfig.json
    */
   compilerOptions?: any;
-};
+}
 
 export type BannerOrFooter =
   | {
@@ -82,7 +85,7 @@ export type Entry = string[] | Record<string, string>;
  * The options available in ants-bundle.config.ts
  * Not all of them are available from CLI flags
  */
-export type Options = {
+export interface Options {
   /** Optional config name to show in CLI output */
   name?: string;
   /**
@@ -106,7 +109,7 @@ export type Options = {
   minifyIdentifiers?: boolean;
   minifySyntax?: boolean;
   keepNames?: boolean;
-  watch?: boolean | string | (string | boolean)[];
+  watch?: boolean | string | Array<string | boolean>;
   ignoreWatch?: string[] | string;
   onSuccess?: string | (() => Promise<void | undefined | (() => void | Promise<void>)>);
   jsxFactory?: string;
@@ -124,9 +127,9 @@ export type Options = {
   dts?: boolean | string | DtsConfig;
   sourcemap?: boolean | 'inline';
   /** Always bundle modules matching given patterns */
-  noExternal?: (string | RegExp)[];
+  noExternal?: Array<string | RegExp>;
   /** Don't bundle these modules */
-  external?: (string | RegExp)[];
+  external?: Array<string | RegExp>;
   /**
    * Replace `process.env.NODE_ENV` with `production` or `development`
    * `production` when the bundled is minified, `development` otherwise
@@ -201,7 +204,7 @@ export type Options = {
    */
   shims?: boolean;
   /**
-   * ENCODE BUNDLE plugins
+   * ANTS BUNDLE plugins
    * @experimental
    * @alpha
    */
@@ -224,7 +227,7 @@ export type Options = {
    * @default false
    */
   cjsInterop?: boolean;
-};
+}
 
 export type NormalizedOptions = Omit<
   MarkRequired<Options, 'entry' | 'outDir'>,

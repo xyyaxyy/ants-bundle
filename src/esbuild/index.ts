@@ -32,8 +32,8 @@ const getOutputExtensionMap = (
 /**
  * Support to exclude special package.json
  */
-const generateExternal = async (external: (string | RegExp)[]) => {
-  const result: (string | RegExp)[] = [];
+const generateExternal = async (external: Array<string | RegExp>) => {
+  const result: Array<string | RegExp> = [];
 
   for (const item of external) {
     if (typeof item !== 'string' || !item.endsWith('package.json')) {
@@ -41,7 +41,7 @@ const generateExternal = async (external: (string | RegExp)[]) => {
       continue;
     }
 
-    let pkgPath: string = path.isAbsolute(item)
+    const pkgPath: string = path.isAbsolute(item)
       ? path.dirname(item)
       : path.dirname(path.resolve(process.cwd(), item));
 
@@ -75,7 +75,7 @@ export async function runEsbuild(
     ...deps.map((dep) => new RegExp(`^${dep}($|\\/|\\\\)`)),
     ...(await generateExternal(options.external || [])),
   ];
-  const outDir = options.outDir;
+  const { outDir } = options;
 
   const outExtension = getOutputExtensionMap(options, format, pkg.type);
   const env: { [k: string]: string } = {
@@ -184,7 +184,7 @@ export async function runEsbuild(
       mainFields: platform === 'node' ? ['module', 'main'] : ['browser', 'module', 'main'],
       plugins: esbuildPlugins.filter(truthy),
       define: {
-        ENCODE_BUNDLE_FORMAT: JSON.stringify(format),
+        ANTS_BUNDLE_FORMAT: JSON.stringify(format),
         ...(format === 'cjs' && injectShims
           ? {
               'import.meta.url': 'importMetaUrl',
