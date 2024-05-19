@@ -1,3 +1,3 @@
-module.exports = { 
-    extends: [ 'eslint-config-ants/typescript','prettier',],
+module.exports = {
+  extends: ['eslint-config-ants/typescript', 'prettier'],
 };

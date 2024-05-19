@@ -50,6 +50,7 @@
     "ants-lint-cli-fix": "ants-lint-cli fix"
   },
   "devDependencies": {
+    "@commitlint/cli": "19.3.0",
     "@rollup/plugin-json": "5.0.1",
     "@swc/core": "1.2.218",
     "@types/debug": "4.1.7",
@@ -122,6 +123,5 @@
   },
   "engines": {
     "node": ">=16.14"
-  },
-  "packageManager": "pnpm@8.15.4"
+  }
 }
