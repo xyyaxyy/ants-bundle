@@ -8,10 +8,10 @@ const config = {
   tagline: 'antsxdp定制构建工具，基于 esbuild 实现',
   favicon: 'img/avatar.png',
 
-  url: 'https://ants-studio-fe.github.io',
+  url: 'https://xyyaxyy.github.io',
   baseUrl: '/ants-bundle/',
 
-  organizationName: 'ants-studio-fe',
+  organizationName: 'antsXDP',
   projectName: 'ants-bundle',
 
   onBrokenLinks: 'throw',
@@ -57,7 +57,7 @@ const config = {
             label: '完整功能',
           },
           {
-            href: 'https://github.com/ants-studio-fe/ants-bundle',
+            href: 'https://github.com/xyyaxyy/ants-bundle',
             label: 'GitHub',
             position: 'right',
           },
@@ -80,11 +80,11 @@ const config = {
             items: [
               {
                 label: 'antsxdp官网',
-                href: 'http://antsstudio.cn',
+                href: 'https://www.antsxdp.com',
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/ants-studio-fe/ants-bundle',
+                href: 'https://github.com/xyyaxyy/ants-bundle',
               },
             ],
           },

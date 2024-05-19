@@ -46,10 +46,10 @@
   "definitions": {
     "options": {
       "type": "object",
-      "markdownDescription": "Configuration options for [ants-bundle](https://github.com/ants-studio-fe/ants-bundle)",
+      "markdownDescription": "Configuration options for [ants-bundle](https://github.com/xyyaxyy/ants-bundle)",
       "properties": {
         "entry": {
-          "markdownDescription": "Files that each serve as an input to the bundling algorithm.\n\n---\nReferences:\n- [Entry Points](https://esbuild.github.io/api/#entry-points) - esbuild\n - [Multiple Entrypoints](https://github.com/ants-studio-fe/ants-bundle) - ants-bundle",
+          "markdownDescription": "Files that each serve as an input to the bundling algorithm.\n\n---\nReferences:\n- [Entry Points](https://esbuild.github.io/api/#entry-points) - esbuild\n - [Multiple Entrypoints](https://github.com/xyyaxyy/ants-bundle) - ants-bundle",
           "oneOf": [
             {
               "type": "array",
